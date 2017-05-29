@@ -15,7 +15,11 @@
     <p><strong>Background color:</strong> If the images are smaller than container or you want something to be seen from the background of each strip, select the color for each one.</p>
     <p><strong>Border:</strong> Allows you to add styles to the container border such as type, color, thickness or rounded corners.</p>
 <p>&nbsp;</p>
+<img src="http://www.marcosgigena.ga/images/muestra-mg-flexstripes.jpg" alt="Muestra MG-Flexstripes" />
+<p>&nbsp;</p>
 <ul>
     <li><a href="http://www.caniuse.com/#search=flexbox" target="_blank">¿Puedo usar Flexbox? | Can i use Flexbox?</a></li>
     <li><a href="http://bit.ly/mg-flexstripes" target="_blank">Más info | More info</a></li>
 </ul>
+
+
