@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.5" client="site" method="upgrade">
+    <name>MG-FlexStripes</name>
+    <version>1.0.0</version>
+    <creationDate>29/05/2017</creationDate>
+    <author>Marcos Gigena</author>
+    <authorUrl>http://www.marcosgigena.ga</authorUrl>
+    <authorEmail>info@marcosgigena.ga</authorEmail>
+	<license>GNU General Public License version v3.0</license>
+    <copyright>Copyright Marcos Gigena (C) 2017</copyright>
+    <description>
+        <![CDATA[<div class="marco">
+            <h1 class="titulo">MG FlexStripes:</h1>
+            <h2 class="subtitulo">Módulo de imágenes multilenguaje en tiras creado con las propiedades de CSS <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">Flexbox</a> y con varias opciones de fácil configuración como por ejemplo:</h2>
+            <p><strong>Carga de imágenes:</strong> Permite agregar hasta 10 imágenes con posibilidad de mostrar una simple descripción HTML.</p>
+            <p><strong>Enlaces o Pop-up:</strong> Permite seleccionar si desea agregar un enlace personalizado o ver la imagen completa en una ventana emergente.</p>
+            <p><strong>Medidas:</strong> Permite configurar el alto del contenedor y la vista previa de la imagen.</p>
+            <p><strong>Colores de fondo:</strong> Si las imágenes son más pequeñas o desea que se vea algo del fondo de cada tira, permite seleccionar el color para cada una.</p>
+            <p><strong>Borde:</strong> permite agregar estilos al borde del contenedor tales como tipo, color, grosor o esquinas redondeadas.</p>
+            <hr />
+            <h2 class="subtitulo">Strip image multilingual module created with CSS Flexbox properties and with several easy-to-use settings such as:</h2>
+            <p><strong>Images load:</strong> Allows to add up to 10 images with the possibility of displaying a simple HTML description.</p>
+            <p><strong>Links or Pop-up:</strong> Select whether to add a custom link or view the entire image in a pop-up modal.</p>
+            <p><strong>Sizes:</strong> Allows you to configure container height and image preview.</p>
+            <p><strong>Background color:</strong> If the images are smaller than container or you want something to be seen from the background of each strip, select the color for each one.</p>
+            <p><strong>Border:</strong> Allows you to add styles to the container border such as type, color, thickness or rounded corners.</p>
+            <hr />
+            <ul class="enlaces">
+                <li><a class="caniuse" href="http://www.caniuse.com/#search=flexbox" target="_blank">¿Puedo usar Flexbox? | Can i use Flexbox?</a></li>
+                <li><a class="github" href="https://github.com/gigenam/mg-flexstripes" target="_blank">Estoy en GitHub | I'm in GitHub</a></li>
+                <li><a class="mg" href="http://www.marcosgigena.ga/blog/mg-flexstripes" target="_blank">Más info | More info</a></li>
+            </ul>
+        </div>
+        <style type="text/css">
+            .marco{padding: 20px 0; margin-bottom: 20px; overflow: auto; border-bottom: 1px solid rgba(0,0,0,0.2);}
+            .titulo{margin-bottom: 25px; padding-bottom: 20px; font-size: 28px; color: #444; border-bottom: 1px solid rgba(0,0,0,0.2);}
+            .subtitulo{margin-bottom: 15px; padding-bottom: 15px; font-size: 16px; font-weight: normal; color: #444;}
+            p{font-size: 13px; padding-bottom: 6px; color: #444; font-weight: normal;}
+            .enlaces{float: right; margin: 10px 0 0;}
+            .enlaces li{display: inline-block; margin-left: 8px;}
+            .enlaces a{display: block; padding: 5px 10px; color: #fff; background-color: #444; font-size: 13px; text-align: center; border-radius: 3px;}
+            .enlaces a.caniuse{background-color: #db5600;}
+            .enlaces a.github{color: #24292e; background-color: #fff; border: 1px solid #b4c0cc;}
+            .enlaces a::before{display: inline-block; content:""; width:20px; height:20px; margin-right: 5px; vertical-align:-4px; background-image:url(/modules/mod_mg-flexstripes/assets/images/icons.png); background-size: cover;}
+            .enlaces a.caniuse::before{background-position:0;}
+            .enlaces a.github::before{background-position:-22px;}
+            .enlaces a.mg::before{background-position:-44px;}
+            ;}
+        </style>]]>
+    </description>
+    <files>
+        <folder>assets</folder>
+        <folder>tmpl</folder>
+        <filename module="mod_mg-flexstripes">mod_mg-flexstripes.php</filename>
+        <filename>mod_mg-flexstripes.xml</filename>
+        <filename>helpers.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_mg-flexstripes.ini</language>
+        <language tag="es-ES">es-ES/es-ES.mod_mg-flexstripes.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="MOD_MG-FLEXSTRIPES_IMAGENES_LABEL">
+                <field name="links" type="note" label="MOD_MG-FLEXSTRIPES_LINKS_LABEL" />
+
+                <field name="links_popup" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="2" 
+                       label="MOD_MG-FLEXSTRIPES_URL_POPUP_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_POPUP_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_POPUP_LINK_LABEL</option>
+				        <option value="2">MOD_MG-FLEXSTRIPES_URL_POPUP_POPUP_LABEL</option>
+			    </field>
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img1" type="note" label="MOD_MG-FLEXSTRIPES_IMG_1_LABEL" />
+
+                <field name="img_1"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_1"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_1_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_1_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_1_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img2" type="note" label="MOD_MG-FLEXSTRIPES_IMG_2_LABEL" />
+
+                <field name="img_2"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_2"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_2_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_2_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_2_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img3" type="note" label="MOD_MG-FLEXSTRIPES_IMG_3_LABEL" />
+
+                <field name="img_3"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_3"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_3_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_3_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_3_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img4" type="note" label="MOD_MG-FLEXSTRIPES_IMG_4_LABEL" />
+
+                <field name="img_4"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_4"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_4_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_4_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_4_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img5" type="note" label="MOD_MG-FLEXSTRIPES_IMG_5_LABEL" />
+
+                <field name="img_5"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_5"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_5_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_5_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_5_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img6" type="note" label="MOD_MG-FLEXSTRIPES_IMG_6_LABEL" />
+
+                <field name="img_6"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_6"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_6_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_6_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_6_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img7" type="note" label="MOD_MG-FLEXSTRIPES_IMG_7_LABEL" />
+
+                <field name="img_7"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_7"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_7_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_7_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_7_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img8" type="note" label="MOD_MG-FLEXSTRIPES_IMG_8_LABEL" />
+
+                <field name="img_8"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_8"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_8_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_8_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_8_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img9" type="note" label="MOD_MG-FLEXSTRIPES_IMG_9_LABEL" />
+
+                <field name="img_9"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_9"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_9_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_9_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_9_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="img10" type="note" label="MOD_MG-FLEXSTRIPES_IMG_10_LABEL" />
+
+                <field name="img_10"
+                       type="media"
+                       label="MOD_MG-FLEXSTRIPES_URL_IMG_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_IMG_DESC" 
+                />
+                <field name="custom_link_10"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_URL_PER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_URL_PER_DESC" 
+                />
+                <field name="custom_link_10_dest" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_URL_TIPO_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_URL_TIPO_DESC">
+				        <option value="1">MOD_MG-FLEXSTRIPES_URL_INT_LABEL</option>
+				        <option value="0">MOD_MG-FLEXSTRIPES_URL_EXT_LABEL</option>
+			    </field>
+                <field name="img_10_txtalt"
+                       type="text"
+                       label="MOD_MG-FLEXSTRIPES_TXT_ALT_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_ALT_DESC" 
+                />
+                <field name="img_10_txtdesc"
+                       type="textarea"
+                       filter="safehtml"
+                       label="MOD_MG-FLEXSTRIPES_TXT_DESC_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_TXT_DESC_DESC" 
+                />
+
+                <field type="spacer" name="" hr="false" />
+            </fieldset>
+            <fieldset name="MOD_MG-FLEXSTRIPES_OPCIONES_LABEL">
+
+                <field name="alto_cont" type="note" label="MOD_MG-FLEXSTRIPES_MEDIDAS_LABEL" />
+
+                <field name="alto_container"
+                       type="text"
+                       class="span1"
+                       default="350px"
+                       label="MOD_MG-FLEXSTRIPES_ALTO_CONTAINER_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_ALTO_CONTAINER_DESC"
+                />
+
+                <field name="img_pos_x"
+                       type="text"
+                       class="span1"
+                       default="0"
+                       label="MOD_MG-FLEXSTRIPES_POS_IMG_X_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_POS_IMG_DESC" 
+                />
+                <field name="img_pos_y"
+                       type="text"
+                       class="span1"
+                       default="0"
+                       label="MOD_MG-FLEXSTRIPES_POS_IMG_Y_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_POS_IMG_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="bg_col" type="note" label="MOD_MG-FLEXSTRIPES_BG_COL_LABEL" />
+
+                <field name="color_container" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_COLOR_CONTAINER_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_COLOR_CONTAINER_DESC" 
+                />
+
+                <field type="spacer" name="" hr="false" />
+
+                <field name="color_img_1" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_1_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_2" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_2_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_3" 
+                       type="color"
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_3_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_4" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_4_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_5" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_5_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_6" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_6_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_7" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_7_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_8" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_8_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_9" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_9_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+                <field name="color_img_10" 
+                       type="color" 
+                       default="transparent"
+	                   label="MOD_MG-FLEXSTRIPES_BG_COLOR_10_LABEL"
+	                   description="MOD_MG-FLEXSTRIPES_BG_COLOR_DESC" 
+                />
+
+                <field type="spacer" name="" hr="true" />
+
+                <field name="border" type="note" label="MOD_MG-FLEXSTRIPES_BORDER_LABEL" />
+
+                <field name="border_container_width"
+                       type="text"
+                       class="span2"
+                       label="MOD_MG-FLEXSTRIPES_BORDER_WIDTH_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_BORDER_WIDTH_DESC" 
+                />
+                <field name="border_container_style" 
+                       type="list" 
+                       default="none" 
+                       label="MOD_MG-FLEXSTRIPES_BORDER_STYLE_LABEL" 
+                       description="MOD_MG-FLEXSTRIPES_BORDER_STYLE_DESC">
+                        <option value="dashed">Dashed</option>
+                        <option value="dotted">Dotted</option>
+                        <option value="double">Double</option>
+                        <option value="groove">Groove</option>
+                        <option value="outset">Outset</option>
+                        <option value="ridge">Ridge</option>
+                        <option value="solid">Solid</option>
+                        <option value="none">None</option>
+                </field>
+                
+                <field name="border_container_color"
+                       type="color"
+                       label="MOD_MG-FLEXSTRIPES_BORDER_COLOR_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_BORDER_COLOR_DESC" 
+                />
+
+                <field name="border_container_radius"
+                       type="text"
+                       class="span2"
+                       default="0"
+                       label="MOD_MG-FLEXSTRIPES_BORDER_RADIUS_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_BORDER_RADIUS_DESC" 
+                />
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field name="modo_dev" 
+                       type="radio" 
+                       class="btn-group btn-group-yesno" 
+                       default="1" 
+                       label="MOD_MG-FLEXSTRIPES_MDEV_LABEL"
+			    	   description="MOD_MG-FLEXSTRIPES_MDEV_DESC">
+				        <option value="0">MOD_MG-FLEXSTRIPES_DEV_LABEL</option>
+				        <option value="1">MOD_MG-FLEXSTRIPES_PRO_LABEL</option>
+			    </field>
+
+                <field name="moduleclass_sfx"
+                       type="textarea"
+                       label="MOD_MG-FLEXSTRIPES_SFX_LABEL"
+                       description="MOD_MG-FLEXSTRIPES_SFX_DESC" 
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

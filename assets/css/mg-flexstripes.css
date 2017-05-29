@@ -1,0 +1,97 @@
+.mg-flexstripes__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.mg-flexstripes__stripes {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.2s cubic-bezier(0.41, 0.19, 0.69, 1.38);
+  transition: all 0.2s cubic-bezier(0.41, 0.19, 0.69, 1.38);
+}
+.mg-flexstripes__stripes:hover {
+  -webkit-box-flex: 12;
+      -ms-flex: 12;
+          flex: 12;
+  /*Ampliacion de las imagenes | Img expansion*/
+}
+.mg-flexstripes__stripes img {
+  /*Icono de aumento | Zoom icon*/
+  max-width: inherit;
+  position: relative;
+}
+.mg-flexstripes__stripes a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  opacity: .3;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  background-image: url(../images/zoom.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 65%;
+  font-size: 2.4rem;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* Alineacion centrada | Center align */
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+@media screen and (max-width: 640px) {
+  .mg-flexstripes__stripes a {
+    font-size: 2rem;
+  }
+}
+.mg-flexstripes__stripes:hover > a {
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 2px 1px rgba(51, 51, 51, 0.3);
+          box-shadow: 2px 2px 1px rgba(51, 51, 51, 0.3);
+}
+.mg-flexstripes__desc {
+  /*Descripcion | Description*/
+  width: 100%;
+  position: absolute;
+  bottom: -300%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: bottom .25s ease;
+  transition: bottom .25s ease;
+}
+.mg-flexstripes__desc p {
+  padding: 0.4em 0.6em;
+  color: white;
+  font-size: 1.35rem;
+}
+.mg-flexstripes__stripes:hover > .mg-flexstripes__desc {
+  bottom: 0;
+  /*Mostrar la descripcion | Show description*/
+}
+
+/*Modal*/
+#sbox-window {
+  right: 0 !important;
+  left: 0 !important;
+  margin: auto !important;
+  height: auto !important;
+}
+
+.sbox-content-image img {
+  max-width: 100%;
+  height: auto !important;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
