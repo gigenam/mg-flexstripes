@@ -18,7 +18,7 @@
             <p><strong>Colores de fondo:</strong> Si las imágenes son más pequeñas o desea que se vea algo del fondo de cada tira, permite seleccionar el color para cada una.</p>
             <p><strong>Borde:</strong> permite agregar estilos al borde del contenedor tales como tipo, color, grosor o esquinas redondeadas.</p>
             <hr />
-            <h2 class="subtitulo">Strip image multilingual module created with CSS Flexbox properties and with several easy-to-use settings such as:</h2>
+            <h2 class="subtitulo">Strip image multilingual module created with CSS <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">Flexbox</a> properties and with several easy-to-use settings such as:</h2>
             <p><strong>Images load:</strong> Allows to add up to 10 images with the possibility of displaying a simple HTML description.</p>
             <p><strong>Links or Pop-up:</strong> Select whether to add a custom link or view the entire image in a pop-up modal.</p>
             <p><strong>Sizes:</strong> Allows you to configure container height and image preview.</p>
