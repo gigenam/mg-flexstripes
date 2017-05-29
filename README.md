@@ -17,5 +17,5 @@
 <p>&nbsp;</p>
 <ul>
     <li><a href="http://www.caniuse.com/#search=flexbox" target="_blank">¿Puedo usar Flexbox? | Can i use Flexbox?</a></li>
-    <li><a href="http://www.marcosgigena.ga/blog/mg-flexstripes" target="_blank">Más info | More info</a></li>
+    <li><a href="http://bit.ly/mg-flexstripes" target="_blank">Más info | More info</a></li>
 </ul>
