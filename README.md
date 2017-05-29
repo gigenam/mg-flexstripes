@@ -16,6 +16,9 @@
     <p><strong>Border:</strong> Allows you to add styles to the container border such as type, color, thickness or rounded corners.</p>
 <p>&nbsp;</p>
 <img src="http://www.marcosgigena.ga/images/muestra-mg-flexstripes.jpg" alt="Muestra MG-Flexstripes" />
+<p>Config</p>
+<img src="http://www.marcosgigena.ga/images/configES-mg-flexstripes.jpg" alt="Cofiguracion MG-Flexstripes" />
+<img src="http://www.marcosgigena.ga/images/configEN-mg-flexstripes.jpg" alt="Cofiguration MG-Flexstripes" />
 <p>&nbsp;</p>
 <ul>
     <li><a href="http://www.caniuse.com/#search=flexbox" target="_blank">¿Puedo usar Flexbox? | Can i use Flexbox?</a></li>
